@@ -7,29 +7,29 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Books extends Component {
+class CharacterSearch extends Component {
   state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
+    characters: [],
+    name: "",
+    description: "",
+   
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadCharacter();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadCharacter = () => {
+    API.getCharacter()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ characters: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
+  deleteCharacter = id => {
+    API.deleteCharacter(id)
+      .then(res => this.loadCharacter())
       .catch(err => console.log(err));
   };
 
@@ -43,12 +43,12 @@ class Books extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveCharacter({
         title: this.state.title,
         author: this.state.author,
-        synopsis: this.state.synopsis
+       
       })
-        .then(res => this.loadBooks())
+        .then(res => this.loadCharacter())
         .catch(err => console.log(err));
     }
   };
@@ -59,7 +59,7 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>What Character are you searching?</h1>
             </Jumbotron>
             <form>
               <Input
@@ -74,34 +74,29 @@ class Books extends Component {
                 name="author"
                 placeholder="Author (required)"
               />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
+           
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Submit Character
               </FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>CharacterSearch On My List</h1>
             </Jumbotron>
-            {this.state.books.length ? (
+            {this.state.characters.length ? (
               <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                {this.state.characters.map(character => (
+                  <ListItem key={character._id}>
+                    <Link to={"/characters/" + character._id}>
                       <strong>
-                        {book.title} by {book.author}
+                        {character.title} by {character.author}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                    <DeleteBtn onClick={() => this.deleteCharacter(character._id)} />
                   </ListItem>
                 ))}
               </List>
@@ -115,4 +110,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default CharacterSearch;

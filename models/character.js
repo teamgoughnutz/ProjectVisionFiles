@@ -6,6 +6,6 @@ const characterSchema = new Schema({
   description: String,
 });
 
-const Book = mongoose.model("Book", characterSchema);
+const Character = mongoose.model("Character", characterSchema);
 
-module.exports = Book;
+module.exports = Character;
