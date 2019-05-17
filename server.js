@@ -15,7 +15,22 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/characters");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/characters");
+mongoose.connect('mongodb://lolcahost/test', {useNewUrlParser: true});
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function(){
+    var characterSchema = new mongoose.Schema({
+        name: String
+    });
+    var character = mongoose.model('character', characterSchema);
+
+    var ironMan = new character({name: "ironMan"});
+    console.log(ironMan.name);
+});
 
 // Start the API server
 app.listen(PORT, function() {

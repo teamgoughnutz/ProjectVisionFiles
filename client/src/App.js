@@ -1,24 +1,16 @@
 import React from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Books from "./pages/Books";
-// import Detail from "./pages/Detail";
+import CharacterSearch from "./pages/CharacterSearch";
 
-
-
-function App() {
-  return (
-    // <Router>
-      <div>
-     
-        {/* <Switch> */}
-          {/* <Route exact path="/" component={Character} />
-          <Route exact path="/characters" component={Character} />
-          <Route exact path="/characters/:id" component={Detail} /> */}
-      
-        {/* </Switch> */}
+function App(){
+  return(
+    <div>
+      <CharacterSearch />
       </div>
-  //   </Router>
-  // );
-        )};
+  );
+}
+
+
+
+
 
 export default App;
