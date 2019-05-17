@@ -13,9 +13,7 @@ router
   .route("/:id")
   .get(characterController
   .findById)
-  .put(characterController
-  .update)
-  .delete(characterController
-  .remove);
+ 
+ 
 
 module.exports = router;
