@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
+
+
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
@@ -27,11 +27,7 @@ class CharacterSearch extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteCharacter = id => {
-    API.deleteCharacter(id)
-      .then(res => this.loadCharacter())
-      .catch(err => console.log(err));
-  };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
