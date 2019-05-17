@@ -16,7 +16,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/characters");
-mongoose.connect('mongodb://lolcahost/test', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
 
 var db = mongoose.connection;
 
