@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Album from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import { FormControl, InputLabel } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
 import MarvelAPI from "../../utils/MarvelApi";
 import API from "../../utils/API";
 
@@ -47,13 +41,13 @@ class CharacterSearch extends Component {
     this.searchMarvel("thor");
   }
 
-  // loadCharacter = () => {
-  //   API.getCharacter()
-  //     .then(res =>
-  //       this.setState({ characters: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  getCharacter = () => {
+    API.getCharacter()
+      .then(res =>
+        this.setState({ characters: res.data, name: "", describtion: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
   searchMarvel = query => {
     MarvelAPI.search(query)
