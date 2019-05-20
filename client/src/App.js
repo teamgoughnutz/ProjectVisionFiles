@@ -1,5 +1,6 @@
 import React from "react";
-import CharacterSearch from "./pages/CharacterSearch";
+import CharacterSearch from "./Components/CharacterSearch/CharacterSearch.jsx";
+
 
 function App(){
   return(

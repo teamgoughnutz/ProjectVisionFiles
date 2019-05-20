@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,12 +13,9 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import API from "./utils/api.js"
 
 const styles = theme => ({
   container: {
@@ -46,12 +42,12 @@ class CharacterSearch extends Component {
     characters: [],
     name: "",
     description: "",
-   
+
   };
 
-   componentDidMount() {
-  //   this.loadCharacter();
-     this.searchMarvel("thor");
+  componentDidMount() {
+    //   this.loadCharacter();
+    this.searchMarvel("thor");
   }
 
   // loadCharacter = () => {
@@ -62,21 +58,21 @@ class CharacterSearch extends Component {
   //     .catch(err => console.log(err));
   // };
 
-searchMarvel = query => {
+  searchMarvel = query => {
     API.search(query)
       .then(res => this.setState({ results: res.data.data.results }))
       .catch(err => console.log(err));
-  
+
   };
 
-    handleInputChange = event => {
+  handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
       [name]: value
     });
   };
-    handleFormSubmit = event => {
+  handleFormSubmit = event => {
     event.preventDefault();
     this.searchMarvel(this.state.search);
   };
@@ -87,7 +83,7 @@ searchMarvel = query => {
   //     API.saveCharacter({
   //       title: this.state.title,
   //       author: this.state.author,
-       
+
   //     })
   //       .then(res => this.loadCharacter())
   //       .catch(err => console.log(err));
@@ -95,37 +91,43 @@ searchMarvel = query => {
   // };
 
   render() {
+    const { classes } = this.props;
     return (
- <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                 <div className={classes.root}>
-      <FormControl className={classes.margin}>
-        <InputLabel
-          htmlFor="custom-css-standard-input"
-          classes={{
-            root: classes.cssLabel,
-            focused: classes.cssFocused,
-          }}
-          onChange={props.handleInputChange}
-          value={props.search}
-          name="search"
-          type="text"
-          placeholder="Vision Files"
-          id="search"
-        >
-                <Grid item>
-                  <Button onClick={props.handleFormSubmit}variant="contained" color="primary">
-                    Search
+      <div className={classes.heroButtons}>
+        <Grid container spacing={16} justify="center">
+          <div className={classes.root}>
+            <FormControl className={classes.margin}>
+              <InputLabel
+                htmlFor="custom-css-standard-input"
+                classes={{
+                  root: classes.cssLabel,
+                  focused: classes.cssFocused,
+                }}
+                onChange={props.handleInputChange}
+                value={props.search}
+                name="search"
+                type="text"
+                placeholder="Vision Files"
+                id="search"
+              />
+              <Grid item>
+                <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
+                  Search
                   </Button>
-                </Grid>
               </Grid>
-            </div>
+            </FormControl>
+
           </div>
-        </div>
+          </Grid>
+      </div>
+    )}
+  
 
-
-Album.propTypes = {
-  classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CharacterSearch);
+
+      Album.propTypes = {
+      classes: PropTypes.object.isRequired,
+    };
+
+    export default withStyles(styles)(CharacterSearch);
