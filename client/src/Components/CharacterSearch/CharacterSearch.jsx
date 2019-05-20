@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import Album from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
-import { FormControl, InputLabel } from "@material-ui/core/styles";
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import MarvelAPI from "../../utils/MarvelApi";
@@ -118,7 +118,7 @@ class CharacterSearch extends Component {
 };
 
 
-      Album.propTypes = {
+CharacterSearch.propTypes = {
       classes: PropTypes.object.isRequired,
     };
 
