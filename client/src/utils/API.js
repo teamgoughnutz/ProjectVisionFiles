@@ -14,8 +14,8 @@ export default {
     return axios.delete("/api/character/" + id);
   },
   // Saves a character to the database
-  saveCharacter: function(characerData) {
-    return axios.post("/api/character", characerData);
+  saveCharacter: function(characterData) {
+    return axios.post("/api/character", characterData);
   }
 };
 
