@@ -21,7 +21,8 @@ const styles = {
 };
 
 function ImgMediaCard(props) {
-  const { classes } = props;
+   const { props } = this;
+    const { classes } = props;
   return (
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
