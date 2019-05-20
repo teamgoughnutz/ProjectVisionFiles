@@ -14,9 +14,29 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 
-
-
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
+});
 
 
 
@@ -76,16 +96,36 @@ searchMarvel = query => {
 
   render() {
     return (
-       <div>
-        <SearchForm
-          search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        <ResultList results={this.state.results} />
-      </div>
-    );
-  }
-}
+ <div className={classes.heroButtons}>
+              <Grid container spacing={16} justify="center">
+                 <div className={classes.root}>
+      <FormControl className={classes.margin}>
+        <InputLabel
+          htmlFor="custom-css-standard-input"
+          classes={{
+            root: classes.cssLabel,
+            focused: classes.cssFocused,
+          }}
+          onChange={props.handleInputChange}
+          value={props.search}
+          name="search"
+          type="text"
+          placeholder="Vision Files"
+          id="search"
+        >
+                <Grid item>
+                  <Button onClick={props.handleFormSubmit}variant="contained" color="primary">
+                    Search
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          </div>
+        </div>
 
-export default CharacterSearch;
+
+Album.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(CharacterSearch);

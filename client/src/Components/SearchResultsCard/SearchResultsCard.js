@@ -22,23 +22,22 @@ const styles = {
 function ImgMediaCard(props) {
   const { classes } = props;
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt={result.name}
           className={classes.media}
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={result.thumbnail.path + "/protrait_fantastic.jpg"}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {result.name}
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+           {result.description || "Marvel, the great comic book company, has decided I  don't deserve a Bio and they left it empty. Now they have me to deal with.......HAHAHAHAHAH!"}
           </Typography>
         </CardContent>
       </CardActionArea>
