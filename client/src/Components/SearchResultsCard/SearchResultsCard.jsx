@@ -8,12 +8,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import classNames from 'classnames';
+
 
 const styles = {
   card: {
     maxWidth: 345,
-  },
+  }, 
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: 'cover',
@@ -21,8 +21,8 @@ const styles = {
 };
 
 function ImgMediaCard(props) {
-   const { props } = this;
-    const { classes } = props;
+ 
+  const { classes } = props;
   return (
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
@@ -39,7 +39,7 @@ function ImgMediaCard(props) {
             {result.name}
           </Typography>
           <Typography component="p">
-           {result.description || "Marvel, the great comic book company, has decided I  don't deserve a Bio and they left it empty. Now they have me to deal with.......HAHAHAHAHAH!"}
+            {result.description || "Marvel, the great comic book company, has decided I  don't deserve a Bio and they left it empty. Now they have me to deal with.......HAHAHAHAHAH!"}
           </Typography>
         </CardContent>
       </CardActionArea>

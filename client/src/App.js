@@ -1,13 +1,15 @@
 import React from "react";
-import CharacterSearch from "./Components/CharacterSearch/CharacterSearch.jsx";
+
+import Album from "./Components/SearchResultsContainer/SearchResultsContainer"
 
 
 function App(){
-  console.log(CharacterSearch);
   return(
     <div>
-      <CharacterSearch />
+      <Album />
       </div>
+    
+      
   );
 }
 
