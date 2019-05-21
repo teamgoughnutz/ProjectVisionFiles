@@ -6,7 +6,7 @@ import Album from "./Components/SearchResultsContainer/SearchResultsContainer"
 function App(){
   return(
     <div>
-      <Album />
+      <SearchResultsContainer/>
       </div>
     
       
