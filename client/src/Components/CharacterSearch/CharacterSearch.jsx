@@ -34,30 +34,22 @@ function CharacterSearch(props) {
       <Grid container spacing={16} justify="center">
         <div className={classes.root}>
           <FormControl className={classes.margin}>
-            <InputLabel
-              htmlFor="custom-css-standard-input"
-              classes={{
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              }}
-              onChange={props.handleInputChange}
-              value={props.search}
-              name="search"
-              type="text"
-              placeholder="Vision Files"
-              id="search"
-            />
             <Grid item>
-              <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
-                Execute
-                  </Button>
-                  <InputBase
-                placeholder="Search…"
+              <InputBase
+                onChange={props.handleInputChange}
+                value={props.search}
+                name="search"
+                type="text"
+                id="search"
+                placeholder="Search Vision Files"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-                />
+              />
+              <Button onClick={props.handleInputChange} variant="contained" color="primary">
+                Execute
+                  </Button>
             </Grid>
           </FormControl>
 
