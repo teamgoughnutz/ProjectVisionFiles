@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 
+
+
 const styles = {
   card: {
     maxWidth: 345,
@@ -21,9 +23,10 @@ const styles = {
 };
 
 function ImgMediaCard(props) {
- 
+
   const { classes } = props;
   return (
+    {props.results.map (result => (
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
@@ -52,6 +55,8 @@ function ImgMediaCard(props) {
         </Button>
       </CardActions>
     </Card>
+    ))}
+
   );
 }
 
