@@ -1,18 +1,17 @@
 import React from 'react';
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import CharacterSearch from "../CharacterSearch/CharacterSearch";
 import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
+import MarvelAPI from "../../utils/MarvelApi";
+import API from "../../utils/API";
+
 
 const styles = theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  icon: {
-    marginRight: theme.spacing.unit * 2,
-  },
+
   heroUnit: {
     backgroundColor: theme.palette.background.paper,
   },
@@ -56,38 +55,77 @@ const styles = theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-function Album() {
+class SearchResultsContainer extends Component {
+  state = {
+    characters: [],
+    name: "",
+    description: "",
+
+  };
+
+  componentDidMount() {
+    //   this.loadCharacter();
+    this.searchMarvel("thor");
+  }
+
+  getCharacter = () => {
+    API.getCharacter()
+      .then(res =>
+        this.setState({ characters: res.data, name: "", describtion: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+  searchMarvel = query => {
+    MarvelAPI.search(query)
+      .then(res => this.setState({ results: res.data.data.results }))
+      .catch(err => console.log(err));
+
+  };
+
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
+  };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchMarvel(this.state.search);
+  };
+
   const { props } = this;
-  const { classes } = props;
+const { classes } = props;
 
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <main>
-        <CharacterSearch
-          search={this.state.search}
-          handleFormSubmit={this.handleFromSubmit}
-          handleInputChange={this.state.results} />
+return (
+  <React.Fragment>
+    <CssBaseline />
+    <main>
+      <CharacterSearch
+        search={this.state.search}
+        handleFormSubmit={this.handleFromSubmit}
+        handleInputChange={this.state.results} />
 
-        <SearchResultsCard results={this.state.results} />
+      <SearchResultsCard results={this.state.results} />
 
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
+    </main>
+    {/* Footer */}
+    <footer className={classes.footer}>
+      <Typography variant="h6" align="center" gutterBottom>
+        Footer
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+      <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        Something here to give the footer a purpose!
         </Typography>
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
-  );
+    </footer>
+    {/* End footer */}
+  </React.Fragment>
+);
 }
 
-Album.propTypes = {
+SearchResultsContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Album);
+export default withStyles(styles)(SearchResultsContainer);
