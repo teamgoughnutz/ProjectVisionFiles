@@ -9,36 +9,39 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
+
 const styles = {
   card: {
     maxWidth: 345,
-  },
+  }, 
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: 'cover',
   },
 };
 
-function ImgMediaCard(props) {
-  const { classes } = props;
+function SearchResultsCard(props) {
+
+ const { classes } = props; 
   return (
-    <Card className={classes.card}>
+    props.results.map (result => (
+    <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
           component="img"
-          alt="Contemplative Reptile"
+          alt={result.name}
           className={classes.media}
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          height="375"
+          image={result.thumbnail.path + "/standard_fantastic.jpg"}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {result.name}
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            {result.description || "Marvel, the great comic book company, has decided I  don't deserve a Bio and they left it empty. Now they have me to deal with.......HAHAHAHAHAH!"}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -51,11 +54,13 @@ function ImgMediaCard(props) {
         </Button>
       </CardActions>
     </Card>
+    ))
+
   );
 }
 
-ImgMediaCard.propTypes = {
+SearchResultsCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImgMediaCard);
+export default withStyles(styles)(SearchResultsCard);

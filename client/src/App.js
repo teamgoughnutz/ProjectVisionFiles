@@ -1,11 +1,15 @@
 import React from "react";
-import CharacterSearch from "./pages/CharacterSearch";
+
+import SearchResultsContainer from "./Components/SearchResultsContainer/SearchResultsContainer"
+
 
 function App(){
   return(
     <div>
-      <CharacterSearch />
+      <SearchResultsContainer/>
       </div>
+    
+      
   );
 }
 
