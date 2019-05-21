@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -96,10 +96,15 @@ class SearchResultsContainer extends Component {
   };
 
 
-        <SearchResultsCard results={this.state.results} />
-
+ 
+    render() {
+      return(
+     <React.Fragment>
+      <main>
+         <SearchResultsCard results={this.state.results} />
       </main>
-      {/* Footer */}
+      
+   
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
@@ -108,15 +113,17 @@ class SearchResultsContainer extends Component {
           Something here to give the footer a purpose!
         </Typography>
     </footer>
-    {/* End footer */}
+   
   </React.Fragment>
-);
-}
+  );
+    
+    }
+   
 
 
-SearchResultsContainer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// SearchResultsContainer.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 }
 
 

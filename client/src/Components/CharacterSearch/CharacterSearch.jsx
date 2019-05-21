@@ -26,9 +26,9 @@ const styles = theme => ({
 
 
 
-function CharacterSearch() {
+function CharacterSearch(props) {
   render() {
-    const { props } = this;
+  
     const { classes } = props;
     return (
       <div className={classes.heroButtons}>
@@ -60,8 +60,6 @@ function CharacterSearch() {
       </div>
     )
   }
-
-
 };
 
 
