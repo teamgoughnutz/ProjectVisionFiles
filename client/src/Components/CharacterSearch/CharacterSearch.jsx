@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -48,7 +48,7 @@ function CharacterSearch(props) {
             />
             <Grid item>
               <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
-                Search
+                Execute
                   </Button>
             </Grid>
           </FormControl>
