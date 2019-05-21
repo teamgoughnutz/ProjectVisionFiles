@@ -95,8 +95,6 @@ class SearchResultsContainer extends Component {
     this.searchMarvel(this.state.search);
   };
 
-//   const { props } = this;
-// const { classes } = props;
 
         <SearchResultsCard results={this.state.results} />
 
