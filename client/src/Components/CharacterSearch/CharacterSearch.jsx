@@ -26,44 +26,37 @@ const styles = theme => ({
 
 
 
-function CharacterSearch() {
-  render() {
-    const { props } = this;
-    const { classes } = props;
-    return (
-      <div className={classes.heroButtons}>
-        <Grid container spacing={16} justify="center">
-          <div className={classes.root}>
-            <FormControl className={classes.margin}>
-              <InputLabel
-                htmlFor="custom-css-standard-input"
-                classes={{
-                  root: classes.cssLabel,
-                  focused: classes.cssFocused,
-                }}
-                onChange={props.handleInputChange}
-                value={props.search}
-                name="search"
-                type="text"
-                placeholder="Vision Files"
-                id="search"
-              />
-              <Grid item>
-                <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
-                  Search
+function CharacterSearch(props) {
+  return (
+    <div className={classes.heroButtons}>
+      <Grid container spacing={16} justify="center">
+        <div className={classes.root}>
+          <FormControl className={classes.margin}>
+            <InputLabel
+              htmlFor="custom-css-standard-input"
+              classes={{
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              }}
+              onChange={props.handleInputChange}
+              value={props.search}
+              name="search"
+              type="text"
+              placeholder="Vision Files"
+              id="search"
+            />
+            <Grid item>
+              <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
+                Search
                   </Button>
-              </Grid>
-            </FormControl>
+            </Grid>
+          </FormControl>
 
-          </div>
-        </Grid>
-      </div>
-    )
-  }
-
-
-};
-
+        </div>
+      </Grid>
+    </div>
+  )
+}
 
 CharacterSearch.propTypes = {
   classes: PropTypes.object.isRequired,
