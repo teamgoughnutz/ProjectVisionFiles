@@ -9,10 +9,9 @@ router.route("/")
   .create);
 
 // Matches with "/api/character/:id"
-router
-  .route("/:id")
+router.route("/:id")
   .get(characterController
-  .findById)
+  .findById);
  
  
 
