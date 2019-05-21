@@ -5,7 +5,7 @@ import  { Component } from "react";
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-// import CharacterSearch from "../CharacterSearch/CharacterSearch";
+import CharacterSearch from "../CharacterSearch/CharacterSearch";
 import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
 import MarvelAPI from "../../utils/MarvelApi";
 import API from "../../utils/API";
@@ -104,6 +104,7 @@ class SearchResultsContainer extends Component {
       return(
      <React.Fragment>
       <main>
+          <CharacterSearch />
          <SearchResultsCard results={this.state.results} />
       </main>
       
