@@ -117,7 +117,7 @@ class SearchResultsContainer extends Component {
           Something here to give the footer a purpose!
         </Typography>
     </footer>
-   
+
   </React.Fragment>
   );
     

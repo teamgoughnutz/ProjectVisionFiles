@@ -1,5 +1,4 @@
 import React from "react";
-
 import SearchResultsContainer from "./Components/SearchResultsContainer/SearchResultsContainer"
 
 
@@ -12,9 +11,5 @@ function App(){
       
   );
 }
-
-
-
-
 
 export default App;

@@ -5,6 +5,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
+import InputBase from '@material-ui/core/InputBase';
 
 
 const styles = theme => ({
@@ -50,6 +51,13 @@ function CharacterSearch(props) {
               <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
                 Execute
                   </Button>
+                  <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                />
             </Grid>
           </FormControl>
 
