@@ -103,7 +103,7 @@ class SearchResultsContainer extends Component {
       return(
      <React.Fragment>
       <main>
-         <SearchResultsCard results={this.state.results} />
+         <SearchResultsCard results={this.state.characters} />
       </main>
       
    
