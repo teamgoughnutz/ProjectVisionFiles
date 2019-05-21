@@ -27,7 +27,7 @@ const styles = theme => ({
 
 
 function CharacterSearch(props) {
-  render() {
+  
   
     const { classes } = props;
     return (
@@ -59,7 +59,7 @@ function CharacterSearch(props) {
         </Grid>
       </div>
     )
-  }
+  
 };
 
 
