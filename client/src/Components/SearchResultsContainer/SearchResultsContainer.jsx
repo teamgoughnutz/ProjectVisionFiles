@@ -59,6 +59,7 @@ const styles = theme => ({
 class SearchResultsContainer extends Component {
   state = {
     characters: [],
+    results: [],
     name: "",
     description: "",
 
@@ -103,7 +104,7 @@ class SearchResultsContainer extends Component {
       return(
      <React.Fragment>
       <main>
-         <SearchResultsCard results={this.state.characters} />
+         <SearchResultsCard results={this.state.results} />
       </main>
       
    
