@@ -22,7 +22,7 @@ const styles = {
   },
 };
 
-function ImgMediaCard(props) {
+function SearchResultsCard() {
 
   const { classes } = props;
   return (
@@ -60,8 +60,8 @@ function ImgMediaCard(props) {
   );
 }
 
-ImgMediaCard.propTypes = {
+SearchResultsCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImgMediaCard);
+export default withStyles(styles)(SearchResultsCard);

@@ -5,8 +5,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import MarvelAPI from "../../utils/MarvelApi";
-import API from "../../utils/API";
+
 
 const styles = theme => ({
   container: {
@@ -27,60 +26,7 @@ const styles = theme => ({
 
 
 
-
-class CharacterSearch extends Component {
-  state = {
-    characters: [],
-    name: "",
-    description: "",
-
-  };
-
-  componentDidMount() {
-    //   this.loadCharacter();
-    this.searchMarvel("thor");
-  }
-
-  getCharacter = () => {
-    API.getCharacter()
-      .then(res =>
-        this.setState({ characters: res.data, name: "", describtion: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  searchMarvel = query => {
-    MarvelAPI.search(query)
-      .then(res => this.setState({ results: res.data.data.results }))
-      .catch(err => console.log(err));
-
-  };
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]: value
-    });
-  };
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchMarvel(this.state.search);
-  };
-
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.title && this.state.author) {
-  //     API.saveCharacter({
-  //       title: this.state.title,
-  //       author: this.state.author,
-
-  //     })
-  //       .then(res => this.loadCharacter())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
+function CharacterSearch() {
   render() {
     const { props } = this;
     const { classes } = props;
@@ -110,16 +56,17 @@ class CharacterSearch extends Component {
             </FormControl>
 
           </div>
-          </Grid>
+        </Grid>
       </div>
-    )}
-  
+    )
+  }
+
 
 };
 
 
 CharacterSearch.propTypes = {
-      classes: PropTypes.object.isRequired,
-    };
+  classes: PropTypes.object.isRequired,
+};
 
-    export default withStyles(styles)(CharacterSearch);
+export default withStyles(styles)(CharacterSearch);
