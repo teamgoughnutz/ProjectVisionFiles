@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -95,20 +95,16 @@ class SearchResultsContainer extends Component {
     this.searchMarvel(this.state.search);
   };
 
-render() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
+
+ 
+    render() {
+      return(
+     <React.Fragment>
       <main>
-        <CharacterSearch
-          search={this.state.search}
-          handleFormSubmit={this.handleFromSubmit}
-          handleInputChange={this.state.results} />
-
-        <SearchResultsCard results={this.state.results} />
-
+         <SearchResultsCard results={this.state.results} />
       </main>
-      {/* Footer */}
+      
+   
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
@@ -116,11 +112,18 @@ render() {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Something here to give the footer a purpose!
         </Typography>
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
-  )
-};
+    </footer>
+   
+  </React.Fragment>
+  );
+    
+    }
+   
+
+
+// SearchResultsContainer.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 }
 
 

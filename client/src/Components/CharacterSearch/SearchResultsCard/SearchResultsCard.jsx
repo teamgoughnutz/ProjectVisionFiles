@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 
 
 
-
 const styles = {
   card: {
     maxWidth: 345,
@@ -22,12 +21,11 @@ const styles = {
   },
 };
 
-function SearchResultsCard() {
+function SearchResultsCard(props) {
 
-  const { props } = this;
   const { classes } = props;
   return (
-    {props.results.map (result => (
+    props.results.map (result => (
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
@@ -56,7 +54,7 @@ function SearchResultsCard() {
         </Button>
       </CardActions>
     </Card>
-    ))}
+    ))
 
   );
 }
