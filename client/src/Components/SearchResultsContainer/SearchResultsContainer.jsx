@@ -117,6 +117,7 @@ class SearchResultsContainer extends Component {
 SearchResultsContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+}
 
 
 export default withStyles(styles)(SearchResultsContainer);
