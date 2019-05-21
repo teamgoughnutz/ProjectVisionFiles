@@ -1,5 +1,5 @@
 import React from 'react';
-import React, { Component } from "react";
+
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -95,37 +95,32 @@ class SearchResultsContainer extends Component {
     this.searchMarvel(this.state.search);
   };
 
-  const { props } = this;
-const { classes } = props;
+render() {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <main>
+        <CharacterSearch
+          search={this.state.search}
+          handleFormSubmit={this.handleFromSubmit}
+          handleInputChange={this.state.results} />
 
-return (
-  <React.Fragment>
-    <CssBaseline />
-    <main>
-      <CharacterSearch
-        search={this.state.search}
-        handleFormSubmit={this.handleFromSubmit}
-        handleInputChange={this.state.results} />
+        <SearchResultsCard results={this.state.results} />
 
-      <SearchResultsCard results={this.state.results} />
-
-    </main>
-    {/* Footer */}
-    <footer className={classes.footer}>
-      <Typography variant="h6" align="center" gutterBottom>
-        Footer
+      </main>
+      {/* Footer */}
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="center" gutterBottom>
+          Footer
         </Typography>
-      <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-        Something here to give the footer a purpose!
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          Something here to give the footer a purpose!
         </Typography>
-    </footer>
-    {/* End footer */}
-  </React.Fragment>
-);
-}
-
-SearchResultsContainer.propTypes = {
-  classes: PropTypes.object.isRequired,
+      </footer>
+      {/* End footer */}
+    </React.Fragment>
+  )
 };
+
 
 export default withStyles(styles)(SearchResultsContainer);
