@@ -57,21 +57,21 @@ const styles = theme => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 function Album() {
-   const { props } = this;
-    const { classes } = props;
+  const { props } = this;
+  const { classes } = props;
 
   return (
     <React.Fragment>
       <CssBaseline />
-    <main>
-    <CharacterSearch 
-    search={this.state.search}
-    handleFormSubmit={this.handleFromSubmit}
-    handleInputChange={this.state.results} />
+      <main>
+        <CharacterSearch
+          search={this.state.search}
+          handleFormSubmit={this.handleFromSubmit}
+          handleInputChange={this.state.results} />
 
-    <SearchResultsCard results={this.state.results}/>
+        <SearchResultsCard results={this.state.results} />
 
-    </main>
+      </main>
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
