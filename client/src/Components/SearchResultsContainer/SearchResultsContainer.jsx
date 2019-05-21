@@ -95,15 +95,8 @@ class SearchResultsContainer extends Component {
     this.searchMarvel(this.state.search);
   };
 
-render() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <main>
-        <CharacterSearch
-          search={this.state.search}
-          handleFormSubmit={this.handleFromSubmit}
-          handleInputChange={this.state.results} />
+//   const { props } = this;
+// const { classes } = props;
 
         <SearchResultsCard results={this.state.results} />
 
@@ -116,10 +109,15 @@ render() {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Something here to give the footer a purpose!
         </Typography>
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
-  )
+    </footer>
+    {/* End footer */}
+  </React.Fragment>
+);
+}
+
+
+SearchResultsContainer.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
 
