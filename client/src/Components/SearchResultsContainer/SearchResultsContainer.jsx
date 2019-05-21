@@ -121,6 +121,7 @@ render() {
     </React.Fragment>
   )
 };
+}
 
 
 export default withStyles(styles)(SearchResultsContainer);

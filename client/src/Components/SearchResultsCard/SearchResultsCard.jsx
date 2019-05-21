@@ -24,6 +24,7 @@ const styles = {
 
 function SearchResultsCard() {
 
+  const { props } = this;
   const { classes } = props;
   return (
     {props.results.map (result => (
