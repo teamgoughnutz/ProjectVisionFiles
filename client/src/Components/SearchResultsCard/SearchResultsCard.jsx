@@ -23,7 +23,7 @@ const styles = {
 
 function SearchResultsCard(props) {
 
-  const { classes } = props;
+ const { classes } = props; 
   return (
     props.results.map (result => (
     <Card className={classes.card} key={result.id}>

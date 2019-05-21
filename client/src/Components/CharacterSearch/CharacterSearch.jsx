@@ -27,6 +27,7 @@ const styles = theme => ({
 
 
 function CharacterSearch(props) {
+  const { classes } = props;
   return (
     <div className={classes.heroButtons}>
       <Grid container spacing={16} justify="center">
