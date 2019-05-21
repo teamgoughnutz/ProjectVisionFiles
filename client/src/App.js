@@ -1,6 +1,6 @@
 import React from "react";
 
-import Album from "./Components/SearchResultsContainer/SearchResultsContainer"
+import SearchResultsContainer from "./Components/SearchResultsContainer/SearchResultsContainer"
 
 
 function App(){
