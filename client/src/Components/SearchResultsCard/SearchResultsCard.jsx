@@ -32,8 +32,8 @@ function SearchResultsCard(props) {
           component="img"
           alt={result.name}
           className={classes.media}
-          height="140"
-          image={result.thumbnail.path + "/protrait_fantastic.jpg"}
+          height="425"
+          image={result.thumbnail.path + "/standard_xlarge.jpg"}
           title="Contemplative Reptile"
         />
         <CardContent>
