@@ -85,9 +85,6 @@ function CharacterSearch(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title} variant="h6" color="inherit" noWrap>
             Project Vision Files
           </Typography>
