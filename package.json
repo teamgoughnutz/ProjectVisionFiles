@@ -27,6 +27,9 @@
     "express": "^4.17.0",
     "if-env": "^1.0.4",
     "material-ui-flat-pagination": "^3.2.0",
-    "mongoose": "^5.5.9"
+    "mongoose": "^5.5.9",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
   }
 }
