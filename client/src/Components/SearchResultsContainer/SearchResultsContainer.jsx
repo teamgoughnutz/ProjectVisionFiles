@@ -3,7 +3,6 @@ import { Component } from "react";
 // import Grid from '@material-ui/core/Grid';
 // import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import CharacterSearch from "../CharacterSearch/CharacterSearch";
 import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
@@ -12,6 +11,7 @@ import API from "../../utils/API";
 import Header from "../Header/Header"
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
+import Footer from "../Footer/Footer"
 
 
 const styles = theme => ({
@@ -139,14 +139,7 @@ class SearchResultsContainer extends Component {
         </main>
 
 
-        <footer className={classes.footer}>
-          <Typography variant="h6" align="center" gutterBottom>
-            Footer
-        </Typography>
-          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-            Something here to give the footer a purpose!
-        </Typography>
-        </footer>
+       <Footer />
 
       </React.Fragment>
 
