@@ -2,7 +2,7 @@ import React from 'react';
 import  { Component } from "react";
 // import Grid from '@material-ui/core/Grid';
 // import PropTypes from 'prop-types';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import CharacterSearch from "../CharacterSearch/CharacterSearch";
@@ -67,7 +67,7 @@ class SearchResultsContainer extends Component {
 
   componentDidMount() {
     //   this.loadCharacter();
-    this.searchMarvel("thor");
+    this.searchMarvel("Spider-Man");
   }
 
   getCharacter = () => {
@@ -103,6 +103,7 @@ class SearchResultsContainer extends Component {
       const { classes } = this.props;
       return(
      <React.Fragment>
+        <CssBaseline />
       <main>
           <CharacterSearch />
          <SearchResultsCard results={this.state.results} />
@@ -125,9 +126,6 @@ class SearchResultsContainer extends Component {
    
 
 
-// SearchResultsContainer.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 }
 
 
