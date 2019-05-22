@@ -1,7 +1,7 @@
 import React from 'react';
 //import headerCss from './HeaderCss'
 
-function header(){
+function Header(){
     return (
      
             <header>
@@ -11,4 +11,4 @@ function header(){
     )
 }
 
-export default (header);
+export default (Header);

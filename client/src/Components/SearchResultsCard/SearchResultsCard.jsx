@@ -59,7 +59,7 @@ function SearchResultsCard(props) {
           
         </Button>
         <Button size="small" color="primary">
-        <a href="https://www.marvel.com/explore">{result.comics.items[0].name}</a>
+       learn More
         </Button>
       </CardActions>
     </Card>
