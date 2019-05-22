@@ -92,7 +92,6 @@ class SearchResultsContainer extends Component {
     MarvelAPI.search(query)
       .then(res => this.setState({ results: res.data.data.results }))
       .catch(err => console.log(err));
-
   };
 
   searchMarvelAll = () => {
@@ -112,11 +111,7 @@ class SearchResultsContainer extends Component {
     event.preventDefault();
     this.searchMarvel(this.state.search);
   };
-
-
-
   render() {
-    const { classes } = this.props;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -124,8 +119,6 @@ class SearchResultsContainer extends Component {
           <Header />
           <CharacterSearch />
           <SearchResultsCard results={this.state.results} />
-
-
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Pagination
@@ -137,18 +130,10 @@ class SearchResultsContainer extends Component {
           </MuiThemeProvider>
 
         </main>
-
-
-       <Footer />
-
+        <Footer />
       </React.Fragment>
-
-
     );
-
   }
-
-
 
 }
 
