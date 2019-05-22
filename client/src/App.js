@@ -7,7 +7,7 @@ function App(){
   
     
     <SearchResultsContainer />
-    
+   
       
   );
 }
