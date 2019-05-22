@@ -53,11 +53,9 @@ function SearchResultsCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+       
         <Button size="small" color="primary">
-          
-        </Button>
-        <Button size="small" color="primary">
-       learn More
+        <a href="https://www.marvel.com/explore">Learn More</a>
         </Button>
       </CardActions>
     </Card>
