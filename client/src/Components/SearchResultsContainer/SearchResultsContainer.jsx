@@ -129,7 +129,7 @@ class SearchResultsContainer extends Component {
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Pagination
-              limit={12}
+              limit={20}
               offset={this.state.offset}
               total={1491}
               onClick={(e, offset) => this.handlePageClick(offset)}
