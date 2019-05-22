@@ -78,7 +78,7 @@ const styles = theme => ({
   },
 });
 
-function SearchAppBar(props) {
+function CharacterSearch(props) {
   const { classes } = props;
   return (
     <MuiThemeProvider theme={theme}>
@@ -111,17 +111,17 @@ function SearchAppBar(props) {
   );
 }
 
-SearchAppBar.propTypes = {
+CharacterSearch.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default withStyles(styles)(CharacterSearch);
 
 
 
 /////
 /////
-/////
+
 
 // import React from 'react';
 // import PropTypes from 'prop-types';
@@ -152,41 +152,41 @@ export default withStyles(styles)(SearchAppBar);
 
 
 
-// function CharacterSearch(props) {
-//   const { classes } = props;
-//   return (
-//     <div className={classes.heroButtons}>
-//       <Grid container spacing={8} justify="center">
-//         <div className={classes.root}>
-//           <FormControl className={classes.margin}>
-//             <InputLabel
-//               htmlFor="custom-css-standard-input"
-//               classes={{
-//                 root: classes.cssLabel,
-//                 focused: classes.cssFocused,
-//               }}
-//               onChange={props.handleInputChange}
-//               value={props.search}
-//               name="search"
-//               type="text"
-//               placeholder="Vision Files"
-//               id="search"
-//             />
-//             <Grid item>
-//               <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
-//                 Execute
-//                   </Button>
-//             </Grid>
-//           </FormControl>
+// // function CharacterSearch(props) {
+// //   const { classes } = props;
+// //   return (
+// //     <div className={classes.heroButtons}>
+// //       <Grid container spacing={8} justify="center">
+// //         <div className={classes.root}>
+// //           <FormControl className={classes.margin}>
+// //             <InputLabel
+// //               htmlFor="custom-css-standard-input"
+// //               classes={{
+// //                 root: classes.cssLabel,
+// //                 focused: classes.cssFocused,
+// //               }}
+// //               onChange={props.handleInputChange}
+// //               value={props.search}
+// //               name="search"
+// //               type="text"
+// //               placeholder="Vision Files"
+// //               id="search"
+// //             />
+// //             <Grid item>
+// //               <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
+// //                 Execute
+// //                   </Button>
+// //             </Grid>
+// //           </FormControl>
 
-//         </div>
-//       </Grid>
-//     </div>
-//   )
-// }
+// //         </div>
+// //       </Grid>
+// //     </div>
+// //   )
+// // }
 
-// CharacterSearch.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
+// // CharacterSearch.propTypes = {
+// //   classes: PropTypes.object.isRequired,
+// // };
 
-// export default withStyles(styles)(CharacterSearch);
+// // export default withStyles(styles)(CharacterSearch);
