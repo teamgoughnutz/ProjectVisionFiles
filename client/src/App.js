@@ -4,9 +4,9 @@ import SearchResultsContainer from "./Components/SearchResultsContainer/SearchRe
 
 function App(){
   return(
-    <div>
-      <SearchResultsContainer/>
-      </div>
+  
+    
+    <SearchResultsContainer />
     
       
   );
