@@ -23,18 +23,16 @@ const styles = {
   },
 };
 
-const cards = [1];
-
 function SearchResultsCard(props) {
 
  const { classes } = props; 
   return (
-    props.results.map (result => (
       <div className={classNames(classes.layout, classes.cardGrid)}>
       {/* End hero unit */}
       <Grid container spacing={40}>
-        {cards.map(card => (
-          <Grid item key={card} sm={6} md={4} lg={3}>
+
+    {props.results.map (result => (
+          <Grid item key={result.id} sm={6} md={4} lg={3}>
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
@@ -64,10 +62,9 @@ function SearchResultsCard(props) {
       </CardActions>
     </Card>
     </Grid>
-        ))}
+    ))}
         </Grid> 
         </div>  
-    ))
 
   );
 }
