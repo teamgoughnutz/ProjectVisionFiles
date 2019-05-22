@@ -4,12 +4,15 @@ import { Component } from "react";
 // import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
 import CharacterSearch from "../CharacterSearch/CharacterSearch";
 import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
 import MarvelAPI from "../../utils/MarvelApi";
 import API from "../../utils/API";
 import Header from "../Header/Header"
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import Pagination from "material-ui-flat-pagination";
+
 
 const styles = theme => ({
 
@@ -54,6 +57,8 @@ const styles = theme => ({
   },
 });
 
+/// pagination code
+const theme = createMuiTheme();
 
 class SearchResultsContainer extends Component {
   state = {
@@ -61,8 +66,14 @@ class SearchResultsContainer extends Component {
     results: [],
     name: "",
     description: "",
-
+    offset: 0
   };
+
+
+  //pagination code
+  handlePageClick(offset) {
+    this.setState({ offset });
+  }
 
   componentDidMount() {
     //   this.loadCharacter();
@@ -113,6 +124,18 @@ class SearchResultsContainer extends Component {
           <Header />
           <CharacterSearch />
           <SearchResultsCard results={this.state.results} />
+
+
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <Pagination
+              limit={12}
+              offset={this.state.offset}
+              total={1491}
+              onClick={(e, offset) => this.handlePageClick(offset)}
+            />
+          </MuiThemeProvider>
+
         </main>
 
 
@@ -126,6 +149,8 @@ class SearchResultsContainer extends Component {
         </footer>
 
       </React.Fragment>
+
+
     );
 
   }
