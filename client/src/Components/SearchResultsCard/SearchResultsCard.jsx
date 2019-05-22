@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const cards = [1];
 
 function SearchResultsCard(props) {
 
@@ -59,7 +59,7 @@ function SearchResultsCard(props) {
           
         </Button>
         <Button size="small" color="primary">
-        <a href="https://www.marvel.com/explore">{result.comics.items[0].name}</a>
+       learn More
         </Button>
       </CardActions>
     </Card>
