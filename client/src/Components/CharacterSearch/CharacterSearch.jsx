@@ -5,7 +5,6 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
 
 
 const styles = theme => ({
@@ -16,6 +15,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+   
   },
   dense: {
     marginTop: 16,
@@ -31,23 +31,24 @@ function CharacterSearch(props) {
   const { classes } = props;
   return (
     <div className={classes.heroButtons}>
-      <Grid container spacing={16} justify="center">
+      <Grid container spacing={8} justify="center">
         <div className={classes.root}>
           <FormControl className={classes.margin}>
+            <InputLabel
+              htmlFor="custom-css-standard-input"
+              classes={{
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              }}
+              onChange={props.handleInputChange}
+              value={props.search}
+              name="search"
+              type="text"
+              placeholder="Vision Files"
+              id="search"
+            />
             <Grid item>
-              <InputBase
-                onChange={props.handleInputChange}
-                value={props.search}
-                name="search"
-                type="text"
-                id="search"
-                placeholder="Search Vision Files"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
-              <Button onClick={props.handleInputChange} variant="contained" color="primary">
+              <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
                 Execute
                   </Button>
             </Grid>
