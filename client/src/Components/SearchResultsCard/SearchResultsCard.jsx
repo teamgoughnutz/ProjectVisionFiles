@@ -8,12 +8,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import Grid from '@material-ui/core/Grid';
+import classNames from 'classnames';
 
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 325,
+    
   }, 
   media: {
     // ⚠️ object-fit is not supported by IE 11.
@@ -21,11 +23,18 @@ const styles = {
   },
 };
 
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
 function SearchResultsCard(props) {
 
  const { classes } = props; 
   return (
     props.results.map (result => (
+      <div className={classNames(classes.layout, classes.cardGrid)}>
+      {/* End hero unit */}
+      <Grid container spacing={40}>
+        {cards.map(card => (
+          <Grid item key={card} sm={6} md={4} lg={3}>
     <Card className={classes.card} key={result.id}>
       <CardActionArea>
         <CardMedia
@@ -34,7 +43,7 @@ function SearchResultsCard(props) {
           className={classes.media}
           height="375"
           image={result.thumbnail.path + "/standard_fantastic.jpg"}
-          title="Contemplative Reptile"
+        
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -47,13 +56,17 @@ function SearchResultsCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          
         </Button>
         <Button size="small" color="primary">
-          Learn More
+        <a href="https://www.marvel.com/explore">{result.comics.items[0].name}</a>
         </Button>
       </CardActions>
     </Card>
+    </Grid>
+        ))}
+        </Grid> 
+        </div>  
     ))
 
   );
