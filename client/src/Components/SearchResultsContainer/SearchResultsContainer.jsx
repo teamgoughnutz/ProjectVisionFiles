@@ -66,13 +66,14 @@ class SearchResultsContainer extends Component {
     results: [],
     name: "",
     description: "",
-    offset: 0
+    offset: 0,
+    total: 0
   };
 
 
   //pagination code
   handlePageClick(offset) {
-    this.setState({ offset });
+   this.searchMarvelAll(offset);
   }
 
   componentDidMount() {
@@ -94,9 +95,15 @@ class SearchResultsContainer extends Component {
       .catch(err => console.log(err));
   };
 
-  searchMarvelAll = () => {
-    MarvelAPI.searchAll()
-      .then(res => this.setState({ results: res.data.data.results }))
+  searchMarvelAll = (offset) => {
+    MarvelAPI.searchAll(offset)
+      .then(res => {this.setState({ 
+        offset,
+        results: res.data.data.results, 
+        total: res.data.data.total
+      })
+      console.log(res.data.data)
+      })
       .catch(err => console.log(err));
   };
 
@@ -124,7 +131,7 @@ class SearchResultsContainer extends Component {
             <Pagination
               limit={20}
               offset={this.state.offset}
-              total={1491}
+              total={this.state.total}
               onClick={(e, offset) => this.handlePageClick(offset)}
             />
           </MuiThemeProvider>

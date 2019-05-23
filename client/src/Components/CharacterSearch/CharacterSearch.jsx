@@ -82,13 +82,6 @@ function CharacterSearch(props) {
   const { classes } = props;
   return (
     <MuiThemeProvider theme={theme}>
-<<<<<<< HEAD
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-            Project Vision Files
-=======
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -97,7 +90,6 @@ function CharacterSearch(props) {
             </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
               Project Vision Files
->>>>>>> ddavidson
           </Typography>
             <div className={classes.grow} />
             <div className={classes.search}>
