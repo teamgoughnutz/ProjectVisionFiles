@@ -17,6 +17,7 @@ const styles = {
   card: {
     maxWidth: 325,
   
+  
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
@@ -26,7 +27,8 @@ const styles = {
 };
 
 function SearchResultsCard(props) {
-  const { classes } = props;
+  const { classes, backgroundColor} = props;
+ 
   return (
     <div className={classNames(classes.layout, classes.cardGrid)}>
       {/* End hero unit */}
@@ -42,7 +44,7 @@ function SearchResultsCard(props) {
                   height="375"
                   image={result.thumbnail.path + "/standard_fantastic.jpg"}
                 />
-                <CardContent>
+                <CardContent style={{ backgroundColor: 'rgb(183, 28, 28)' }}>
                   <Typography gutterBottom variant="h5" component="h2">
                     {result.name}
                   </Typography>
