@@ -11,11 +11,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
+import { green } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
     primary: red,
   },
+
 });
 
 const styles = theme => ({

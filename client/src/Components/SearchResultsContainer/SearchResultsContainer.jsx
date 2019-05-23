@@ -12,6 +12,7 @@ import Header from "../Header/Header"
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import Footer from "../Footer/Footer"
+import  green  from '@material-ui/core/colors';
 
 
 const styles = theme => ({
@@ -44,6 +45,7 @@ const styles = theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
