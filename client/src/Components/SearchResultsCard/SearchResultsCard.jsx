@@ -10,17 +10,19 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
+import { red } from '@material-ui/core/colors';
 
 
 const styles = {
   card: {
     maxWidth: 325,
-
+  
   },
   media: {
     // ⚠️ object-fit is not supported by IE 11.
     objectFit: 'cover',
   },
+  
 };
 
 function SearchResultsCard(props) {
