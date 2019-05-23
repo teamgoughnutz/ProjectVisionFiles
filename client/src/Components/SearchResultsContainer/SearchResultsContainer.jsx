@@ -90,7 +90,7 @@ class SearchResultsContainer extends Component {
       .catch(err => console.log(err));
   };
 
-  searchMarvel = query => {
+  searchMarvel = (query, event) => {
     if (event.key === 'Enter'){
       MarvelAPI.search(query)
       .then(res => this.setState({ results: res.data.data.results }))  //filter contains look through 
