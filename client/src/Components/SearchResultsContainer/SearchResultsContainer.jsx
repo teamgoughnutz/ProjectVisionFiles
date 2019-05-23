@@ -9,11 +9,18 @@ import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
 import MarvelAPI from "../../utils/MarvelApi";
 import API from "../../utils/API";
 import Header from "../Header/Header"
-import { MuiThemeProvider } from "@material-ui/core/styles";
+import { MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import Footer from "../Footer/Footer"
 import  green  from '@material-ui/core/colors';
 
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
+
+// });
 
 const styles = theme => ({
 
@@ -129,7 +136,7 @@ class SearchResultsContainer extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <main>
+        <main style={{ backgroundColor: 'rgb(240,194,60)' }}>
           <Header />
           <CharacterSearch 
            searchBar = {this.searchMarvel} 

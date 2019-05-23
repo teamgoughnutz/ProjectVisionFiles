@@ -9,6 +9,19 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+<<<<<<< HEAD
+=======
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import red from '@material-ui/core/colors/red';
+
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
+
+// });
+>>>>>>> ddavidson
 
 const styles = theme => ({
   root: {
