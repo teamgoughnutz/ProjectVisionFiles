@@ -88,7 +88,7 @@ class SearchResultsContainer extends Component {
   }
 
   componentDidMount() {
-    //   this.loadCharacter();
+      // this.loadCharacter();
     this.searchMarvelAll();
   }
 
