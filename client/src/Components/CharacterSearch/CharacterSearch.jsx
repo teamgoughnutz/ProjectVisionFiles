@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -11,8 +12,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
-import { green } from '@material-ui/core/colors';
 
+<<<<<<< HEAD
 // const theme = createMuiTheme({
 //   palette: {
 //     primary: 'red'
@@ -20,6 +21,13 @@ import { green } from '@material-ui/core/colors';
   
 
 // });
+=======
+const theme = createMuiTheme({
+  palette: {
+    primary: red,
+  },
+});
+>>>>>>> bernard
 
 const styles = theme => ({
   root: {
@@ -95,18 +103,20 @@ function CharacterSearch(props) {
               Project Vision Files
           </Typography>
             <div className={classes.grow} />
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
+            <form  onSubmit={props.searchBar} className={classes.search}>
+              <Button type="submit" className={classes.searchIcon} color="inherit">
                 <SearchIcon />
-              </div>
+              </Button>
               <InputBase
                 placeholder="Execute Search"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-              />
-            </div>
+                onChange = {props.changeHandle}
+                name = "characterSearch"
+                />
+            </form>
           </Toolbar>
         </AppBar>
       </div>
