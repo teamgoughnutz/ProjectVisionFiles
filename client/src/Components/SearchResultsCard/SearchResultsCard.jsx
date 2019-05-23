@@ -12,7 +12,13 @@ import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
 import { red } from '@material-ui/core/colors';
 
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
 
+// });
 const styles = {
   card: {
     maxWidth: 325,
