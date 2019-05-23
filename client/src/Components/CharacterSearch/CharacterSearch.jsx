@@ -11,12 +11,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
+import { green } from '@material-ui/core/colors';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: red,
-  },
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
+
+// });
 
 const styles = theme => ({
   root: {
@@ -81,30 +84,33 @@ const styles = theme => ({
 function CharacterSearch(props) {
   const { classes } = props;
   return (
-    <MuiThemeProvider theme={theme}>
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-            Project Vision Files
+    // <MuiThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <AppBar position="static" style={{ backgroundColor: 'rgb(183, 28, 28)' }}>
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+              <MenuIcon />
+            </IconButton>
+            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+              Project Vision Files
           </Typography>
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+            <div className={classes.grow} />
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Execute Search"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+              />
             </div>
-            <InputBase
-              placeholder="Execute Search"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
-    </MuiThemeProvider>
+          </Toolbar>
+        </AppBar>
+      </div>
+    // </MuiThemeProvider>
   );
 }
 
@@ -113,77 +119,3 @@ CharacterSearch.propTypes = {
 };
 
 export default withStyles(styles)(CharacterSearch);
-
-
-
-/////
-/////
-
-
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import Button from '@material-ui/core/Button';
-// import FormControl from '@material-ui/core/FormControl';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import Grid from '@material-ui/core/Grid';
-// import { withStyles } from '@material-ui/core/styles';
-
-
-// const styles = theme => ({
-//   container: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing.unit,
-//     marginRight: theme.spacing.unit,
-   
-//   },
-//   dense: {
-//     marginTop: 16,
-//   },
-//   menu: {
-//     width: 200,
-//   },
-// });
-
-
-
-// // function CharacterSearch(props) {
-// //   const { classes } = props;
-// //   return (
-// //     <div className={classes.heroButtons}>
-// //       <Grid container spacing={8} justify="center">
-// //         <div className={classes.root}>
-// //           <FormControl className={classes.margin}>
-// //             <InputLabel
-// //               htmlFor="custom-css-standard-input"
-// //               classes={{
-// //                 root: classes.cssLabel,
-// //                 focused: classes.cssFocused,
-// //               }}
-// //               onChange={props.handleInputChange}
-// //               value={props.search}
-// //               name="search"
-// //               type="text"
-// //               placeholder="Vision Files"
-// //               id="search"
-// //             />
-// //             <Grid item>
-// //               <Button onClick={props.handleFormSubmit} variant="contained" color="primary">
-// //                 Execute
-// //                   </Button>
-// //             </Grid>
-// //           </FormControl>
-
-// //         </div>
-// //       </Grid>
-// //     </div>
-// //   )
-// // }
-
-// // CharacterSearch.propTypes = {
-// //   classes: PropTypes.object.isRequired,
-// // };
-
-// // export default withStyles(styles)(CharacterSearch);

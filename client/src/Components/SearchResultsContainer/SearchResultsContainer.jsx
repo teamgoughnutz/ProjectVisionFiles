@@ -12,6 +12,7 @@ import Header from "../Header/Header"
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import Footer from "../Footer/Footer"
+import  green  from '@material-ui/core/colors';
 
 
 const styles = theme => ({
@@ -44,6 +45,8 @@ const styles = theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+   
+    
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -66,13 +69,14 @@ class SearchResultsContainer extends Component {
     results: [],
     name: "",
     description: "",
-    offset: 0
+    offset: 0,
+    total: 0
   };
 
 
   //pagination code
   handlePageClick(offset) {
-    this.setState({ offset });
+   this.searchMarvelAll(offset);
   }
 
   componentDidMount() {
@@ -92,12 +96,17 @@ class SearchResultsContainer extends Component {
     MarvelAPI.search(query)
       .then(res => this.setState({ results: res.data.data.results }))
       .catch(err => console.log(err));
-
   };
 
-  searchMarvelAll = () => {
-    MarvelAPI.searchAll()
-      .then(res => this.setState({ results: res.data.data.results }))
+  searchMarvelAll = (offset) => {
+    MarvelAPI.searchAll(offset)
+      .then(res => {this.setState({ 
+        offset,
+        results: res.data.data.results, 
+        total: res.data.data.total
+      })
+      console.log(res.data.data)
+      })
       .catch(err => console.log(err));
   };
 
@@ -112,11 +121,7 @@ class SearchResultsContainer extends Component {
     event.preventDefault();
     this.searchMarvel(this.state.search);
   };
-
-
-
   render() {
-    const { classes } = this.props;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -124,31 +129,21 @@ class SearchResultsContainer extends Component {
           <Header />
           <CharacterSearch />
           <SearchResultsCard results={this.state.results} />
-
-
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Pagination
-              limit={12}
+              limit={20}
               offset={this.state.offset}
-              total={1491}
+              total={this.state.total}
               onClick={(e, offset) => this.handlePageClick(offset)}
             />
           </MuiThemeProvider>
 
         </main>
-
-
-       <Footer />
-
+        <Footer />
       </React.Fragment>
-
-
     );
-
   }
-
-
 
 }
 
