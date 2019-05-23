@@ -4,7 +4,7 @@ import SearchResultsContainer from "./Components/SearchResultsContainer/SearchRe
 
 function App(){
   return(
-  
+    
     
     <SearchResultsContainer />
    
