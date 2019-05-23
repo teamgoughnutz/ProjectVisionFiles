@@ -3,9 +3,9 @@ import React from 'react';
 
 function Footer() {
     return (
-        <footer>
-            <img src="/assets/img/marvel1.gif" alt="" />
-            <a href="http://marvel.com">Data provided by Marvel. © 2019 MARVEL</a>
+        <footer style={{ backgroundColor: 'rgb(80,83,66)' }}>
+            <img src="/assets/img/marvel1.gif" alt="Marvel" />
+            <a href="http://marvel.com" style={{color: "white"}}>Data provided by Marvel. © 2019 MARVEL</a>
         </footer>
     )
 }

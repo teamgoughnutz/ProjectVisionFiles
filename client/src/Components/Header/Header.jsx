@@ -4,8 +4,10 @@ import React from 'react';
 function Header(){
     return (
      
-            <header>
+            <header style={{ backgroundColor: 'rgb(80,83,66)' }}>
                 <img src="/assets/img/5m.gif" alt="" />
+                <img src="/assets/img/visionlogo.jpeg" alt='' alignItems="center"/>
+
             </header>
        
     )
