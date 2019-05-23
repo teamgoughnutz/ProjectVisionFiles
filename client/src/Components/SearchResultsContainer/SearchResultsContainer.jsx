@@ -141,6 +141,7 @@ class SearchResultsContainer extends Component {
           <CharacterSearch 
            searchBar = {this.searchMarvel} 
            changeHandle = {this.handleInputChange}
+          
             />
           <SearchResultsCard results={this.state.results} />
           <MuiThemeProvider theme={theme}>

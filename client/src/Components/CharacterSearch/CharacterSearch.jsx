@@ -93,6 +93,7 @@ function CharacterSearch(props) {
               <Button type="submit" className={classes.searchIcon} color="inherit">
                 <SearchIcon />
               </Button>
+              
               <InputBase
                 placeholder="Execute Search"
                 classes={{
@@ -105,6 +106,7 @@ function CharacterSearch(props) {
                 />
                 
             </form>
+           
           </Toolbar>
         </AppBar>
       </div>
