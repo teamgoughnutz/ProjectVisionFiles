@@ -92,12 +92,11 @@ class SearchResultsContainer extends Component {
       .catch(err => console.log(err));
   };
 
-  searchMarvel = (query, event) => {
-    if (event.key === 'Enter'){
-      MarvelAPI.search(query)
+  searchMarvel = (event) => {
+    event.preventDefault();
+      MarvelAPI.search(this.state.characterSearch)
       .then(res => this.setState({ results: res.data.data.results }))  //filter contains look through 
       .catch(err => console.log(err));
-    }
    
     console.log(this.state.characterSearch)
   };
