@@ -102,7 +102,10 @@ function CharacterSearch(props) {
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
-              />
+                onKeyDown = {props.searchBar}
+                onChange = {props.changeHandle}
+                name = "characterSearch"
+                />
             </div>
           </Toolbar>
         </AppBar>

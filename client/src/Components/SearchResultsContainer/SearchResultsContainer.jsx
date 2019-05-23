@@ -67,7 +67,8 @@ class SearchResultsContainer extends Component {
     name: "",
     description: "",
     offset: 0,
-    total: 0
+    total: 0,
+    characterSearch:  ""
   };
 
 
@@ -90,9 +91,13 @@ class SearchResultsContainer extends Component {
   };
 
   searchMarvel = query => {
-    MarvelAPI.search(query)
-      .then(res => this.setState({ results: res.data.data.results }))
+    if (event.key === 'Enter'){
+      MarvelAPI.search(query)
+      .then(res => this.setState({ results: res.data.data.results }))  //filter contains look through 
       .catch(err => console.log(err));
+    }
+   
+    console.log(this.state.characterSearch)
   };
 
   searchMarvelAll = (offset) => {
@@ -124,7 +129,10 @@ class SearchResultsContainer extends Component {
         <CssBaseline />
         <main>
           <Header />
-          <CharacterSearch />
+          <CharacterSearch 
+           searchBar = {this.searchMarvel} 
+           changeHandle = {this.handleInputChange}
+            />
           <SearchResultsCard results={this.state.results} />
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
