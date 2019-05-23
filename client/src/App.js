@@ -1,20 +1,15 @@
 import React from "react";
-
 import SearchResultsContainer from "./Components/SearchResultsContainer/SearchResultsContainer"
 
 
 function App(){
   return(
-    <div>
-      <SearchResultsContainer/>
-      </div>
     
+    
+    <SearchResultsContainer />
+   
       
   );
 }
-
-
-
-
 
 export default App;

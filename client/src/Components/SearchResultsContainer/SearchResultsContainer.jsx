@@ -1,15 +1,26 @@
 import React from 'react';
-import  { Component } from "react";
+import { Component } from "react";
 // import Grid from '@material-ui/core/Grid';
 // import PropTypes from 'prop-types';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-// import CharacterSearch from "../CharacterSearch/CharacterSearch";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { withStyles, createMuiTheme } from '@material-ui/core/styles';
+import CharacterSearch from "../CharacterSearch/CharacterSearch";
 import SearchResultsCard from "../SearchResultsCard/SearchResultsCard.jsx";
 import MarvelAPI from "../../utils/MarvelApi";
 import API from "../../utils/API";
+import Header from "../Header/Header"
+import { MuiThemeProvider} from "@material-ui/core/styles";
+import Pagination from "material-ui-flat-pagination";
+import Footer from "../Footer/Footer"
+import  green  from '@material-ui/core/colors';
 
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
+
+// });
 
 const styles = theme => ({
 
@@ -17,7 +28,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   heroContent: {
-    maxWidth: 600,
+    maxWidth: 500,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -41,6 +52,8 @@ const styles = theme => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+   
+    
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -54,7 +67,8 @@ const styles = theme => ({
   },
 });
 
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+/// pagination code
+const theme = createMuiTheme();
 
 class SearchResultsContainer extends Component {
   state = {
@@ -62,12 +76,20 @@ class SearchResultsContainer extends Component {
     results: [],
     name: "",
     description: "",
-
+    offset: 0,
+    total: 0,
+    characterSearch:  ""
   };
+
+
+  //pagination code
+  handlePageClick(offset) {
+   this.searchMarvelAll(offset);
+  }
 
   componentDidMount() {
     //   this.loadCharacter();
-    this.searchMarvel("thor");
+    this.searchMarvelAll();
   }
 
   getCharacter = () => {
@@ -78,11 +100,25 @@ class SearchResultsContainer extends Component {
       .catch(err => console.log(err));
   };
 
-  searchMarvel = query => {
-    MarvelAPI.search(query)
-      .then(res => this.setState({ results: res.data.data.results }))
+  searchMarvel = (event) => {
+    event.preventDefault();
+      MarvelAPI.search(this.state.characterSearch)
+      .then(res => this.setState({ results: res.data.data.results }))  //filter contains look through 
       .catch(err => console.log(err));
+   
+    console.log(this.state.characterSearch)
+  };
 
+  searchMarvelAll = (offset) => {
+    MarvelAPI.searchAll(offset)
+      .then(res => {this.setState({ 
+        offset,
+        results: res.data.data.results, 
+        total: res.data.data.total
+      })
+      console.log(res.data.data)
+      })
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -96,37 +132,33 @@ class SearchResultsContainer extends Component {
     event.preventDefault();
     this.searchMarvel(this.state.search);
   };
+  render() {
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <main style={{ backgroundColor: 'rgb(240,194,60)' }}>
+          <Header />
+          <CharacterSearch 
+           searchBar = {this.searchMarvel} 
+           changeHandle = {this.handleInputChange}
+            />
+          <SearchResultsCard results={this.state.results} />
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <Pagination
+              limit={20}
+              offset={this.state.offset}
+              total={this.state.total}
+              onClick={(e, offset) => this.handlePageClick(offset)}
+            />
+          </MuiThemeProvider>
 
+        </main>
+        <Footer />
+      </React.Fragment>
+    );
+  }
 
- 
-    render() {
-      const { classes } = this.props;
-      return(
-     <React.Fragment>
-      <main>
-         <SearchResultsCard results={this.state.results} />
-      </main>
-      
-   
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-    </footer>
-   
-  </React.Fragment>
-  );
-    
-    }
-   
-
-
-// SearchResultsContainer.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 }
 
 
