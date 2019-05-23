@@ -13,12 +13,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red';
 import { green } from '@material-ui/core/colors';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: red,
-  },
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
 
-});
+// });
 
 const styles = theme => ({
   root: {
@@ -83,9 +84,9 @@ const styles = theme => ({
 function CharacterSearch(props) {
   const { classes } = props;
   return (
-    <MuiThemeProvider theme={theme}>
+    // <MuiThemeProvider theme={theme}>
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: 'rgb(183, 28, 28)' }}>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
               <MenuIcon />
@@ -109,7 +110,7 @@ function CharacterSearch(props) {
           </Toolbar>
         </AppBar>
       </div>
-    </MuiThemeProvider>
+    // </MuiThemeProvider>
   );
 }
 
