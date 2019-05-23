@@ -12,15 +12,8 @@ import Header from "../Header/Header"
 import { MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import Footer from "../Footer/Footer"
-import  green  from '@material-ui/core/colors';
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: 'red'
-//   }
-  
 
-// });
 
 const styles = theme => ({
 
