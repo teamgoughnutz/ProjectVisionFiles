@@ -10,6 +10,13 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: 'red'
+//   }
+  
+
+// });
 
 const styles = theme => ({
   root: {

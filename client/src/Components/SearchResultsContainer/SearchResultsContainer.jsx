@@ -136,7 +136,7 @@ class SearchResultsContainer extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <main>
+        <main style={{ backgroundColor: 'rgb(240,194,60)' }}>
           <Header />
           <CharacterSearch 
            searchBar = {this.searchMarvel} 
