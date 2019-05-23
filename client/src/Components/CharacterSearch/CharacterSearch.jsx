@@ -8,18 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: 'red'
-//   }
-  
-
-// });
 
 const styles = theme => ({
   root: {
@@ -88,9 +77,6 @@ function CharacterSearch(props) {
       <div className={classes.root}>
         <AppBar position="static" style={{ backgroundColor: 'rgb(183, 28, 28)' }}>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
               Project Vision Files
           </Typography>
