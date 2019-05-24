@@ -12,15 +12,8 @@ import Header from "../Header/Header"
 import { MuiThemeProvider} from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import Footer from "../Footer/Footer"
-import  green  from '@material-ui/core/colors';
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: 'red'
-//   }
-  
 
-// });
 
 const styles = theme => ({
 
@@ -88,7 +81,7 @@ class SearchResultsContainer extends Component {
   }
 
   componentDidMount() {
-    //   this.loadCharacter();
+      // this.loadCharacter();
     this.searchMarvelAll();
   }
 
@@ -103,7 +96,7 @@ class SearchResultsContainer extends Component {
   searchMarvel = (event) => {
     event.preventDefault();
       MarvelAPI.search(this.state.characterSearch)
-      .then(res => this.setState({ results: res.data.data.results }))  //filter contains look through 
+      .then(res => this.setState({ results: res.data.data.results }))  
       .catch(err => console.log(err));
    
     console.log(this.state.characterSearch)
@@ -141,6 +134,7 @@ class SearchResultsContainer extends Component {
           <CharacterSearch 
            searchBar = {this.searchMarvel} 
            changeHandle = {this.handleInputChange}
+          
             />
           <SearchResultsCard results={this.state.results} />
           <MuiThemeProvider theme={theme}>
